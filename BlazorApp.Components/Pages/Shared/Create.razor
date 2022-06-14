@@ -1,0 +1,76 @@
+﻿@page "/Create"
+@inject StudentService StudentService
+
+<div class="container-fluid bg-light p-lg-4 border border-primary rounded-3">
+    <Notification @ref="@Notification"/>
+
+    <EditForm Model=@Student OnSubmit="@OnSubmitHandler">
+        <DataAnnotationsValidator />
+      
+        <div class="form-group row">
+            <label for="IdInput" class="col-sm-2 col-form-label">Id</label>
+            <div class="col-sm-10">
+                <InputText @bind-Value=Student.Id class="form-control" id="IdInput" placeholder="U16106818" />
+            </div>
+        </div>
+        <div class="form-group row mt-2">
+            <label for="FirstNameInput" class="col-sm-2 col-form-label">First Name</label>
+            <div class="col-sm-10">
+                <InputText @bind-Value=Student.FirstName class="form-control" id="FirstNameInput" placeholder="First Name" />
+            </div>
+        </div>
+        <div class="form-group row mt-2">
+            <label for="LastNameInput" class="col-sm-2 col-form-label">Last Name</label>
+            <div class="col-sm-10">
+                <InputText @bind-Value=Student.LastName class="form-control" id="LastNameInput" placeholder="Last Name" />
+            </div>
+        </div>
+        <div class="form-group row mt-2">
+            <label for="CollegeInput" class="col-sm-2 col-form-label">College</label>
+            <div class="col-sm-10">
+                <InputText @bind-Value=Student.College class="form-control" id="CollegeInput" placeholder="Science" />
+            </div>
+        </div>
+        <div class="form-group row mt-2">
+            <label for="RegistrationDateInput" class="col-sm-2 col-form-label">Registration Date</label>
+            <div class="col-sm-10">
+                <InputDate @bind-Value=Student.RegistrationDate class="form-control" id="RegistrationDateInput" />
+            </div>
+        </div>
+        <div class="form-group row mt-2">
+            <label for="NumberOfCoursesInput" class="col-sm-2 col-form-label">Number Of Courses</label>
+            <div class="col-sm-10">
+                <InputNumber @bind-Value=Student.NumberOfCourses class="form-control" id="NumberOfCoursesInput" />
+            </div>
+        </div>
+        <div class="form-group row mt-2">
+            <label for="TotalCreditHoursInput" class="col-sm-2 col-form-label">Total Credit Hours</label>
+            <div class="col-sm-10">
+                <InputNumber @bind-Value=Student.TotalCreditHours class="form-control" id="TotalCreditHoursInput" />
+            </div>
+        </div>
+        <div class="form-group row mt-2">
+            <label for="GPAInput" class="col-sm-2 col-form-label">GPA</label>
+            <div class="col-sm-10">
+                <InputNumber @bind-Value=Student.GPA class="form-control" id="GPAInput" />
+            </div>
+        </div>
+        <div class="form-group row mt-4">
+            <div class="col-sm-2">
+                <div class="d-grid">
+                    @if (IsLoading)
+                    {
+                        <button class="btn btn-primary btn-lg" type="button" disabled>
+                            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                            Loading...
+                        </button>
+                    }
+                    else
+                    {
+                        <button type="submit" id="CreateButton" class="btn btn-primary btn-lg">Create</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </EditForm>
+</div>

@@ -1,0 +1,49 @@
+﻿@using BlazorApp.Components.Enums
+@if (ShowNotification)
+{
+    @switch (Type)
+    {
+        case NotificationType.Information:
+            <div class="alert alert-info fade show" role="alert">
+                <h6 class="alert-heading">@Title</h6>
+                <p>@Message</p>
+            </div>
+            break;
+
+        case NotificationType.Success:
+            <div>
+                <div class="alert alert-success fade show" role="alert">
+                    <h6 class="alert-heading">@Title</h6>
+                    <p>@Message</p>
+                </div>
+            </div>
+            break;
+
+        case NotificationType.Warning:
+            <div>
+                <div class="alert alert-warning fade show" role="alert">
+                    <h6 class="alert-heading">@Title</h6>
+                    <p>@Message</p>
+                </div>
+            </div>
+            break;
+
+        case NotificationType.Error:
+            <div>
+                <div class="alert alert-danger fade show" role="alert">
+                    <h6 class="alert-heading">@Title</h6>
+                    <p>@Message</p>
+                </div>
+            </div>
+            break;
+
+        case NotificationType.Default:
+            <div>
+                <div class="alert alert-light fade show" role="alert">
+                    <h6 class="alert-heading">@Title</h6>
+                    <p>@Message</p>
+                </div>
+            </div>
+            break;
+    }
+}
